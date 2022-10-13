@@ -1,0 +1,7 @@
+DELETE FROM Genres
+WHERE genre_id = 14;
+
+DELETE FROM Genres
+WHERE genre_id = 11;
+
+//Во втором случае данные не были удалены, так как это нарушает целостность БД - запрос удаляет данные из таблицы Genres, на которые ссылается таблица Books.
