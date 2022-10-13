@@ -1,0 +1,5 @@
+INSERT INTO Genres
+VALUES (11, 'Мифы');
+
+INSERT INTO Genres
+VALUES (12, 'Фантастика');
