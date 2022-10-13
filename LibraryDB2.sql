@@ -1,5 +1,5 @@
 --
--- Файл сгенерирован с помощью SQLiteStudio v3.3.3 в Чт окт 13 14:16:03 2022
+-- Файл сгенерирован с помощью SQLiteStudio v3.3.3 в Чт окт 13 14:55:56 2022
 --
 -- Использованная кодировка текста: System
 --
@@ -12,12 +12,14 @@ INSERT INTO Authors (authorsID, authorsName) VALUES (1, 'Том Биркетт');
 INSERT INTO Authors (authorsID, authorsName) VALUES (2, 'Станислав Лем');
 
 -- Таблица: Books
-CREATE TABLE Books (bookID INT NOT NULL, bookName STRING NOT NULL, bookAuthor INT NOT NULL REFERENCES Authors (authorsID), yearOfRelease INT, genre INT REFERENCES Genres (genre_id), PRIMARY KEY (bookID));
-INSERT INTO Books (bookID, bookName, bookAuthor, yearOfRelease, genre) VALUES (1, 'Скандинавские мифы и легенды. Жизнеописания богов и героев с иллюстрациями и подробными комментариями', 1, 2021, NULL);
-INSERT INTO Books (bookID, bookName, bookAuthor, yearOfRelease, genre) VALUES (2, 'Солярис', 2, 1960, NULL);
+CREATE TABLE Books (bookID INT NOT NULL, bookName STRING NOT NULL, bookAuthor INT NOT NULL REFERENCES Authors (authorsID), yearOfRelease INT, genre INT REFERENCES Genres, PRIMARY KEY (bookID));
+INSERT INTO Books (bookID, bookName, bookAuthor, yearOfRelease, genre) VALUES (1, 'Скандинавские мифы и легенды. Жизнеописания богов и героев с иллюстрациями и подробными комментариями', 1, 2021, 11);
+INSERT INTO Books (bookID, bookName, bookAuthor, yearOfRelease, genre) VALUES (2, 'Солярис', 2, 1960, 12);
 
 -- Таблица: Genres
-CREATE TABLE Genres (genre_id INT, genre STRING);
+CREATE TABLE Genres (genre STRING, genre_id INT PRIMARY KEY);
+INSERT INTO Genres (genre, genre_id) VALUES ('Мифы', 11);
+INSERT INTO Genres (genre, genre_id) VALUES ('Фантастика', 12);
 
 -- Индекс: bookID
 CREATE UNIQUE INDEX bookID ON Books (bookID);
